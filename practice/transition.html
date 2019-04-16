@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <title>Transition, Transform 속성</title>
+    <style>
+    .box{
+        margin: 100px auto;
+        border: 5px solid black;
+        background:url("loki.jpg") no-repeat;
+        background-size: cover;
+        width:500px;
+        height: 300px;
+        /* all 1s 로 주면 모든 변환을 통틀어 관리할 수 있음 */
+        transition: all 1s;
+    }
+    .box:hover, .box:focus{
+        background:url("lokionthrone.jpg") no-repeat;
+        background-size: cover;
+        /* transform: rotate(2turn); */
+    }
+    </style>
+</head>
+<body>
+    <div class="box" tabindex="0"></div>
+</body>
+</html>

@@ -1,0 +1,806 @@
+@charset "utf-8";
+@import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
+@import url("normalize.css");
+@import url("fontello.css");
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* 기본스타일 */
+html{
+    font-size: 10px;
+}
+body{
+    font-size: 1.4rem;
+    font-family: 'Spoqa Han Sans', sans-serif;
+    font-weight: 400;
+    /* 대체 색 지정, 이미지 쓰려면 그 앞에 색 넣으면 안됨 */
+    background: url("images/bg_flower.png") no-repeat 50% 0, #aaa linear-gradient(#aaa 0%,#eee 40%, #fff 70%, #fff 100%); 
+    color:#181818;
+}
+/* 링크 스타일 */
+a{
+    color:inherit;
+    text-decoration: none;
+}
+
+/* 숨김 콘텐츠 */
+.readable-hidden, legend{
+    position:absolute;
+    overflow: hidden;
+    width:1px;
+    height:1px;
+    margin:-1px;
+    clip: rect(0, 0, 0, 0);
+}
+
+/* 플로트 이슈를 해결하기 위한 css 모듈 */
+.clearfix::after{ /*메인요소 다음에 가상요소를 만듦*/
+    content: ""; /* 값이 필요하긴 해서 요소만 만들고 값은 비워둔 상태 */
+    background: rgb(155, 155, 255);
+    display:block;
+    clear:both;
+}
+
+
+.container{
+    /* height: 100vh;  */
+    /* 뷰포트 height 100퍼센트하고 똑같음 */
+}
+
+.header, .visual, .main, .slogan, .footer{ /* 클래스 선택자 그룹핑 */
+    width:940px;
+    margin: 0 auto;
+}
+.group{
+    float:left;
+    margin: 0 15px;
+}
+/* 헤더 */
+.header{
+    background: #fff;
+    position: relative;
+    min-height: 100px;
+    padding: 0 30px 40px;
+    border-radius: 0 0 15px 15px;
+}
+
+/* 로고 */
+.logo{
+    position:absolute;
+    top: 52px;
+    left: 65px;
+    z-index: 10;
+}
+/* 멤버링크 */
+.member{
+    text-align:right;
+    padding: 2px 0;
+    position:relative;
+    right:-10px;
+}
+.member li, .member a{
+    display: inline-block;
+}
+/* 2번째 li부터 마지막까지 */
+.member li:nth-child(n+2)::before{ 
+    content: ":";
+}
+.member a{
+    padding: 8px 10px 7px 10px;
+    text-transform: uppercase;
+}
+/* 메인메뉴 */
+/* 맨 앞의 컬러는 예외상황에 그라디언트 대신 보여줄 색깔 */
+.menu{
+    background: linear-gradient(to top, rgb(255, 184, 52) 1%,rgb(231, 135, 10) 35%,rgb(231, 135, 10) 70%,rgb(255, 184, 52) 100%);
+    border-top:2px solid #181818;
+    border-radius: 0 0 5px 5px;
+    height:47px;
+    padding-left:225px;
+    margin-top:5px;
+}
+.menu-item{
+    float:left;
+    position:relative;
+    cursor: pointer;
+}
+
+.menu-act .menu-item-text{
+    color:yellow;
+}
+.menu-item-text{
+    color:#fff;
+    text-shadow: 1px 0 0 black, 0 1px 0 black, -1px 0px 0 black, 0px -1px 0 black;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 45px;
+    display:block;
+    padding: 0 20px;
+    border-left: 2px solid rgba(255,255,255,0.5);
+}
+.menu-act .menu-item-text::after{
+    content:"";
+    display:block;
+    border-bottom:2px solid black;
+}
+.sub-menu{
+    display:none;
+    top:47px;
+    position: absolute;
+    white-space: nowrap;
+}
+.menu-act .sub-menu{
+    display:block;
+}
+.sub-menu1, .sub-menu2, .sub-menu3{
+    left:0;
+}
+.sub-menu4, .sub-menu5, .sub-menu6{
+    right:0;
+}
+
+.sub-menu li, .sub-menu a{
+    display: inline-block;
+}
+.sub-menu a{
+    padding: 8px 0;
+    margin-right:10px;
+}
+/* 비주얼 */
+@keyframes textAni{
+    0% {
+        font-size: 12px;
+        color: rgba(0,0,0,0);
+        /* padding: 0; */
+       transform: translate(0,0);
+    }
+    100% {
+        font-size: 24px;
+        color: rgba(0,0,0,1);
+        /* padding:75px 0 0 400px; */
+        transform: translate(400px, 75px);
+    }
+}
+.visual{
+    height: 120px;
+    position: relative;
+}
+/* 배경 애니메이션 */
+@keyframes flowerAni{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+.visual::before, .visual::after{
+    /* animation-name: flowerAni;
+    animation-duration: 2s; */
+    /* 애니메이션 무한반복 */
+    /* animation-iteration-count: infinite; */
+    /* 순->역->순->역 방향반복 */
+    /* animation-direction: alternate;
+    animation-play-state: paused; */
+    animation: flowerAni 2s infinite alternate;
+    content:"";
+    position: absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background-repeat: no-repeat;
+}
+.visual::before{
+    background-image: url("images/ani_flower_01.png"), url("images/ani_flower_02.png");
+    background-position: 0 -10px, 670px 0;
+}
+.visual::after{
+    /* 잠깐만 있다가 진행해라 */
+    animation-delay: 1s;
+    background-image: url("images/ani_flower_03.png"), url("images/ani_flower_04.png");
+    background-position: 300px 0, 800px 0;
+}
+/* 텍스트 애니메이션 */
+.visual-text{
+    animation-name: textAni;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    position: absolute;
+    z-index: 10;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+/* 메인 컨텐츠 */
+
+.main{
+    padding:30px 15px;
+    background: white;
+    border-radius: 15px 15px 0 0;
+    min-height: 450px;
+    
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-between; */
+}
+.group1{
+    width: 250px;
+}
+.group2{
+    width: 380px;
+}
+.group3{
+    width:190px;
+}
+/* 로그인 */
+.login{
+    background: radial-gradient(circle at right top, rgb(255, 184, 52), rgb(231, 135, 10));
+    padding:10px;
+    border-radius:5px;
+    box-shadow: 5px 5px #aaa;
+}
+.login-heading{
+    /* padding-left: 10px; */
+    text-indent: 1em;
+    font-size:1.5rem;
+    font-weight:700;
+    color:yellow;
+}
+
+.login-form{
+    margin-top:10px;
+    /* position:relative; */
+    border-radius: 5px 5px 0 0;
+    background: white;
+    padding:10px;
+}
+#user-email, #user-pw{
+   width:100px;
+   border: 1px solid #aaa;
+   height:23px;
+   margin-bottom:4px;
+   
+}
+.user-email, .user-pw{
+    width:160px;
+    display:inline-block;
+}
+.user-email label, .user-pw label{
+    display:inline-block;
+    width:3.8em;
+}
+.login fieldset{
+    border-bottom:1px solid #aaa;
+    padding-bottom:10px;
+    position:relative;
+}
+.btn-login{
+    width:50px;
+    height:50px;
+    font-size: 1.3rem;
+    position:absolute;
+    top:0;
+    right:0;
+    border:0;
+    padding:2px;
+    background: orange;
+    color:white;
+    border-radius: 3px;
+}
+.sign{
+    border-radius: 0 0 5px 5px;
+    background: white;
+    padding:0 10px 10px 10px;
+}
+.sign li:first-child{
+    float:left;
+}
+.sign li:last-child{
+    float:right;
+}
+.sign li{
+    /* 폰트사이즈를 바꾸지 않는 방법 */
+    letter-spacing: -1px;
+}
+.sign li::before{
+    color:orange;
+}
+/* 유효성검사 배너 */
+.validation{
+    margin-top:25px;
+}
+
+.validation a{
+    background: url("images/validation_icon.png") no-repeat 20px, linear-gradient( silver, rgb(228, 228, 228));
+    padding-left:45px;
+    border: 1px solid #aaa;
+    border-radius: 15px;
+    display:block;
+    margin-bottom:10px;
+    height:30px;
+    line-height:28px;
+    width:inherit;
+    /* 높이를 고정하지않는 방법 */
+    /* height:2.3em; */
+    /* line-height: 2.3em; */
+}
+.validation a:hover{
+    color:red;
+}
+/* 웹 관련 용어 */
+.term{
+    background: #ccc linear-gradient( silver, rgb(228, 228, 228));
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding:10px 15px;
+}
+.term div{
+    margin-top:10px;
+}
+.term-heading{
+    font-size: 1.5rem;
+    font-weight:700;
+}
+.term-list-thumbnail{
+    background: blue;
+    margin: 5px 10px 0px 0px;
+    float:left;
+}
+/* 이미지 밑에 작은 공간을 없애주는 것 */
+.term-list-thumbnail img{
+    vertical-align: middle;
+}
+.term-list-subject{
+    float:right;
+    width:145px;
+    /* background: yellow; */
+    margin-bottom:5px;
+    /* 아니면 음수마진으로 끌어올리고 이미지의 마진을 없앨 수도 있음 */
+    color: #296897;
+}
+.term-list-brief{
+    /* background: lime; */
+    width: 145px;
+    float:right;
+}
+.even .term-list-thumbnail{
+    float:right;
+    margin: 5px 0 0 10px;
+}
+.even .term-list-subject{
+    float:left;
+}
+.even .term-list-brief{
+    float:left;
+}
+/* 검색 폼 */
+.search{
+    background: #ccc linear-gradient( silver, rgb(228, 228, 228));
+    padding: 15px 30px 10px 30px;
+    border-radius: 15px 15px 0 0;
+    border:1px solid #aaa;
+    border-bottom:none;
+}
+.search-container{
+    display:flex;
+    justify-content: space-between;
+    /* y축 정렬 */
+    align-items: center;
+}
+#search{
+    width:195px;
+    height:24px;
+    border-radius: 3px;
+    border: 1px solid #aaa;
+    padding: 1px 1px 1px 5px;
+}
+
+.btn-search{
+    font-size: 1.2rem;
+    color:white;
+    background: #333;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    padding: 1px 10px;
+    height:24px;
+}
+/* 공지사항 및 자료실 */
+.board{
+    margin-top:20px;
+    position: relative;
+    /* 최소 높이를 보장하여 더 안전한 레이아웃 만들기 */
+    min-height:180px;
+}
+.board-list, .board-more{
+    display:none;
+}
+/* act 받았을때 */
+.board-act .board-list, .board-act .board-more{
+    display:block;
+}
+.board-act .tab{
+    background: white;
+    border-color: orange;
+    color: orange;
+    /* 아니면 상 좌우 보더색 주고 아래는 하얗게 하면 바텀필요없음 */
+    border-bottom: none;
+}
+
+.tab{
+    background: #ccc linear-gradient( silver, rgb(228, 228, 228));
+    border: 1px solid #aaa;
+    color:#555;
+    border-radius: 5px 5px 0 0;
+    display:inline-block;
+    /* 이렇게 하면 라인하이트 안줘도됨 라인하이트 안주는게 나음 */
+    padding: 5px 10px;
+    height:35px;
+    cursor: pointer;
+}
+.pds-heading{
+    position:absolute;
+    top:0;
+    left:73px;
+}
+.board-list{
+    padding-top: 15px;
+}
+.board-more{
+    position:absolute;
+    /* 클릭할 수 있는 영역을 늘려주려함 */
+    top:-8px;
+    right:-8px;
+    padding: 8px;
+}
+/* 보드리스트 안의 li 로 선택하는 것이 좋을듯 */
+.icon-dot-circled{
+    margin-bottom: 10px;
+}
+
+.icon-dot-circled a{
+    display:inline-block;
+    width:275px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: -5px;
+}
+.icon-dot-circled time{
+    float:right;
+}
+/* 새소식 */
+.news{
+    margin-top:15px;
+    position:relative;
+}
+/* 구분선 넣기 */
+.news::before{
+    content:"";
+    position:absolute;
+    top:35px;
+    left:0;
+    width:80%;
+    background: #aaa linear-gradient(to right, #aaa 0%, white 100%);
+    height:1px;
+}
+.news-heading{
+    color:orange;
+    font-size:1.5rem;
+    font-weight:700;
+}
+.news-more{
+    position:absolute;
+    top:-8px;
+    right:0;
+    /* 링크 클릭할 수 있는 자리 넓게 */
+    padding:8px;
+}
+.icon-plus::before{
+    color:green;
+}
+.news-item{
+    /* 뉴스의 본문이 짧을 때 높이를 잃는 것을 방지하는 최소높이 설정 */
+    min-height:160px;
+    margin-top:35px;
+    position: relative;
+}
+.news-item a{
+    /* 앵커 태그에서 초점을 잃지않고, 각 브라우저에서 요소들이 깔끔하게 보이도록 */
+    display: block;
+    /* a태그에 패딩을 주어서 이미지까지 a가 감쌀 수 있도록 */
+    padding-left:130px;
+}
+.news-item-subject{
+    font-weight: 700;
+}
+.news-item-brief{
+    margin-top:10px;
+    /* 가독성이 가장 좋은 줄높이, 1.5 || 1.6 */
+    line-height: 1.5;
+}
+.news-item-thumbnail{
+    position: absolute;
+    text-align:center;
+    top:3px;
+    left:0;
+}
+.news-item-thumbnail img{
+    box-shadow: 0 10px 15px 5px #aaa;
+    margin-bottom:10px;
+}
+/* 신규이벤트 */
+.event-related{
+    background: #ccc linear-gradient(#ccc, #eee);
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding:10px;
+}
+.event{
+    /* background: yellow; */
+    position: relative;
+    border-bottom-color: grey;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+.event-heading, .related-heading, .favorite-heading{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.event-heading span, .related-heading span, .favorite-heading span{
+    color:rgb(255, 102, 0);
+}
+.event p{
+    margin: 10px 0;
+}
+.event-thumbnail{
+    border: 1px solid grey;
+    box-shadow: 5px 5px grey;
+}
+/* .btn-event-prev, .btn-event-next{
+    background-image: url("images/back_forward.png");
+    background-repeat: no-repeat;
+    position:absolute;
+    top: 0;
+    right:24px;
+    width:19px;
+    padding-top:18px;
+    height:0px;
+    overflow: hidden;
+    border: none;
+    cursor:pointer;
+}
+.btn-event-next{
+    right:0;
+    background-position: -36px 0;
+} */
+
+.btn-event{
+    /* background: yellow; */
+    /* height:18px; */
+    position:absolute;
+    top:0;
+    right:0;
+}
+.btn-event-prev, .btn-event-next{
+    background-image:url("images/back_forward.png");
+    background-repeat: no-repeat;
+    width:19px;
+    height:18px;
+    padding-top:18px;
+    border:0;
+    overflow: hidden;
+    /* 마우스를 올리면 손가락 모양 나오게 */
+    cursor:pointer; 
+}
+.btn-event-next{
+    background-position: 100% 0;
+}
+.related{
+    /* background: skyblue; */
+    margin-top:10px;
+}
+.related-list{
+    padding: 0 5px;
+    margin-top:10px;
+    background: white;
+    border-radius:5px;
+    border: 1px solid #aaa;
+    height:27px;
+    overflow:hidden;
+    transition: all 0.4s;
+}
+.related-list a{
+    display:block;
+    line-height: 25px; /* 글자를 가운데에 */
+    text-indent:1em;
+    width:100%;
+}
+.list-act{
+    height:147px;
+    padding: 10px 5px;
+}
+/* 인기 사이트 */
+.favorite{
+    margin-top:20px;
+    padding: 10px;
+    background: #ccc linear-gradient(#ccc, #eee);
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    position: relative;
+}
+.favorite-more{
+    position: absolute;
+    padding:8px;
+    top:2px;
+    right:2px;
+}
+.favorite-list{
+    margin-top:5px;
+    /* 오버플로우때문에 마진병합이 안되는 상황 */
+    overflow:hidden;
+    counter-reset: 0;
+}
+.favorite-list li{
+    margin-top:5px;
+    /* position:relative; */
+    counter-increment: number;
+    /* background: yellow; */
+    /* font-size:3rem; */
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.favorite-list li::before{
+    content:counter(number);
+    background: #aaa;
+    color:white;
+    font-size:1.2rem;
+    display:inline-block;
+    padding: 0 5px;
+    border-radius:2px;
+    margin-right:5px;
+}
+
+.favorite-list em{
+    background-image: url("images/rank.png");
+    background-repeat: no-repeat;
+    /* background: blue; */
+    /* position:absolute; */
+    /* 탑 50은 부모크기의 50% 지점에서 시작 */
+    /* top:50%; */
+    /* transform: translateY(-50%); */
+    /* right:0; */
+    width: 9px;
+    height: 11px;
+    padding-top:11px;
+    overflow: hidden;
+    margin-left:auto; 
+}
+.down{
+    background-position: 0 100%;
+}
+.stop{
+    background-position: 0 50%;
+}
+
+/* 슬로건 */
+.slogan{
+    background: white;
+    position: relative;
+    padding:0px 70px 10px 180px;
+    /* background: tomato; */
+}
+.slogan-heading{
+    /* 앱솔루트의 부모가 꼭 렐러티브일 필요는 없음 스태틱만 아니면 됨 */
+    position:absolute;
+    width:110px;
+    height: 83px;
+    bottom:-25px;
+    left:20px;
+    text-align:center;
+    line-height:83px;
+}
+.slogan-heading::after{
+    content:"";
+    width:100%;
+    height:100%;
+    position:absolute;
+    background-image:url("images/coffee.png");
+    background-repeat:no-repeat;
+    left:0;
+    top:0;
+}
+
+.slogan p{
+    /* background: lime; */
+    color:#a09784;
+}
+q::before{
+    content: '"';
+    font-size: 3rem;
+    position:relative;
+    top:5px;
+}
+/* 푸터 */
+.footer-bg{
+    background: #ccc linear-gradient(#ccc, #fff);
+}
+.footer{
+    position:relative;
+    /* background: yellow; */
+    padding:5px 100px 20px 150px;
+    /* height: 10vh; */
+}
+.footer-logo{
+    position:absolute;
+    top:35px;
+    left:30px;
+}
+.badge{
+    position:absolute;
+    top:15px;
+    right:0;
+}
+.guide{
+    padding: 4px 0;
+    background: #7B8385;
+    border-radius:10px;
+    margin:10px 0;
+    text-align: center;
+    color:white;
+    text-transform: uppercase;
+}
+.guide li{
+    display:inline-block;
+}
+.guide a{
+    display:inline-block;
+    /* background: pink; */
+    padding:8px 15px;
+}
+.address span{
+    margin-right: 15px;
+}

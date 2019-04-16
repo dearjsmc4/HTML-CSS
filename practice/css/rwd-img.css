@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* *{
+    box-sizing: border-box;
+} */
+body{
+    background: silver;
+}
+
+.rwd-container{
+    background: yellow;
+    width:50%;
+    border: 10px solid black;
+    margin: 50px auto;
+}
+.rwd-container img{
+    max-width:100%;
+    height: auto;
+    vertical-align: middle;
+}
+.rwd-iframe{
+    position: relative;
+    padding-top:calc(9/16*100%);
+    width: 100%;
+}
+.rwd-iframe iframe{
+    position: absolute;
+    top:0;
+    left: 0;
+    width:100%;
+    height:100%;
+}
+.rwd-map{
+    position: relative;
+    padding-top:calc(3/4*100%);
+    width: 100%;
+}
+.rwd-map iframe{
+    position: absolute;
+    top:0;
+    left: 0;
+    width:100%;
+    height:100%;
+}

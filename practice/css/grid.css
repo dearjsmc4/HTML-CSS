@@ -1,0 +1,138 @@
+@charset "utf-8";
+*{
+    box-sizing: border-box;
+}
+body{
+    margin:0;
+}
+
+
+@media all and (max-width:999px){
+    .container{
+        background: silver;
+        display:grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 20px;
+        /* 알파마진과 오메가마진은 패딩으로 주면됨. */
+        padding: 0 20px;
+        grid-template-areas: "header header header header"
+                            "nav nav nav nav"
+                            "book book news news"
+                            "board board favorite favorite"
+                            "twitter twitter twitter twitter"
+                            "footer footer footer footer"
+    }
+    .header{
+        background: yellow;
+        grid-area: header;
+    }
+    .navigation{
+        background: green;
+        grid-area: nav;
+    }
+    .book{
+        background: brown;
+        grid-area: book;
+    }
+    .news{
+        background: blue;
+        grid-area:news;
+    }
+    .board{
+        background: orange;
+        grid-area:board;
+    }
+    .twitter{
+        background: skyblue;
+        grid-area: twitter;
+    }
+    .favorite{
+        background: olive;
+        grid-area: favorite;
+    }
+    .footer{
+        background: teal;
+        grid-area:footer;
+    }
+    }
+
+@media all and (min-width:1000px){
+.container{
+    background: silver;
+    width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    /* 몇개의 로우를 가질지 알려줘야함 */
+    /* 데스크탑에서도 65px 고정하지않고 1fr로 하면 플렉서블하게 만들 수 있음 */
+    grid-template-columns: repeat(12, 65px);
+    grid-column-gap: 20px;
+
+    /* grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px;
+    grid-template-areas: "item2 . item1"
+                         "item4 item4 item3"; */
+}
+.header{
+    background: pink;
+    grid-area: 1/1/2/13;
+}
+.navigation{
+    background: purple;
+    grid-area: 2/1/3/13;
+}
+.book{
+    background: brown;
+    grid-area: 3/1/4/5;
+}
+.news{
+    background: blue;
+    grid-area: 3/5/4/13;
+}
+.board{
+    background: yellow;
+    grid-area: 4/1/5/5;
+}
+.twitter{
+    background: skyblue;
+    grid-area: 4/5/5/10;
+}
+.favorite{
+    background: olive;
+    grid-area: 4/10/5/13;
+}
+.footer{
+    background:turquoise;
+    grid-area: 5/1/6/13;
+}
+}
+
+
+.items1{
+    background: red;
+    grid-area:item1;
+}
+.items2{
+    background: yellow;
+    /* grid-column:1 / 4;
+    grid-row: 2 / 3; */
+    /* rs, cs, re, ce */
+    /* grid-area: 2/1/3/4; */
+    grid-area: item2;
+}
+.items3{
+    background: green;
+    grid-area: item3;
+}
+.items4{
+    background: blue;
+    grid-area: item4;
+    /* grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2; */
+
+    /* grid-column: 2 / 3;
+    grid-row: 1 / 2; */
+
+
+}
